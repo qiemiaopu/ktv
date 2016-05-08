@@ -28,7 +28,7 @@
                             </h5>
                         </div>
                         <div class="ibox-content">
-                            <form method="get" action="text.php" class="form-horizontal">
+                            <form method="post" action="user_add" class="form-horizontal">
                                 <!-- 第一个输入框 -->
                                 <div class="form-group">
                                     <label class="col-lg-1 control-label">账号</label>

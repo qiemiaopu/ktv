@@ -14,9 +14,13 @@
     <package name="default" namespace="/" extends="struts-default">
 
         <interceptors>
+            <!-- 声明拦截器 -->
+            <interceptor name="checkPrivilege"
+                         class="com.meeks.util.CheckPrivilegeInterceptor"></interceptor>
 
             <!-- 重新定义默认的拦截器栈 -->
             <interceptor-stack name="defaultStack">
+                <interceptor-ref name="checkPrivilege"></interceptor-ref>
                 <interceptor-ref name="defaultStack"></interceptor-ref>
             </interceptor-stack>
         </interceptors>
@@ -66,6 +70,7 @@
         </action>
 
         <action name="reserve_*" class="reserveAction" method="{1}">
+            <result name="list">/WEB-INF/jsp/reserveAction/list.jsp</result>
             <result name="saveUI">/WEB-INF/jsp/reserveAction/saveUI.jsp</result>
             <result name="show">/WEB-INF/jsp/reserveAction/show.jsp</result>
             <result name="toHouseList" type="redirectAction">house_list</result>

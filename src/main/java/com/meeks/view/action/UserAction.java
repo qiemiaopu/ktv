@@ -37,34 +37,7 @@ public class UserAction extends BaseAction<User> {
     }
 
     /**
-     * 添加页面
-     */
-    public String addUI() throws Exception {
-        return "addUI";
-    }
-
-    /**
-     * 添加
-     */
-    public String add() throws Exception {
-        // >> 设置密码（要使用MD5摘要）
-        String md5Digest = DigestUtils.md5Hex(model.getMd5Password());
-        model.setMd5Password(md5Digest);
-        userService.save(model);
-        return "toList";
-    }
-
-    ///** 修改页面 */
-    //public String editUI() throws Exception {
-    //    // 准备回显的数据
-    //    User user = userService.getById(model.getId());
-    //    ActionContext.getContext().getValueStack().push(user);
-    //
-    //    return "saveUI";
-    //}
-
-    /**
-     * 修改
+     * 修改(重置密码)
      */
     public String edit() throws Exception {
         // 1，从数据库中取出原对象

@@ -23,15 +23,6 @@
 <%@ include file="/WEB-INF/jsp/public/title.jspf"%>
     <div style="margin:100px auto;width:1200px;">
         <div class="row">
-            <div class="col-lg-12">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <div class="row"></div>
-                        <h5 class="col-lg-1">用户列表</h5>
-                    <div>
-                    <a href="user_addUI.action"><button type="button" class="btn btn-primary btn-sm" style="margin-top:-5px;float:right">添加用户</button></a>
-                </div>
-            </div>
             <s:form action="user_list.action">
                 <div style="display:inline;width:200px;float:right;margin:10px 80px -100px 0;">
                     <input name="name" type="text" placeholder="姓名" class="form-control">

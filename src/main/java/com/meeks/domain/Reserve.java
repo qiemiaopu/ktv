@@ -13,6 +13,7 @@ public class Reserve {
     private Date endTime;
 
     private Integer houseId;
+    private House house;
 
     public Integer getId() {
         return id;
@@ -60,5 +61,13 @@ public class Reserve {
 
     public void setHouseId(Integer houseId) {
         this.houseId = houseId;
+    }
+
+    public House getHouse() {
+        return house;
+    }
+
+    public void setHouse(House house) {
+        this.house = house;
     }
 }
