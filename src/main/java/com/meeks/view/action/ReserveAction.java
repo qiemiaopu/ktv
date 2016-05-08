@@ -1,66 +1,52 @@
 package com.meeks.view.action;
 
-import com.meeks.base.BaseAction;
-import com.meeks.domain.House;
-import com.meeks.domain.Reserve;
-import com.meeks.util.QueryHelper;
-import com.opensymphony.xwork2.ActionContext;
+import java.util.Date;
+
 import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
-import java.util.Date;
+import com.meeks.base.BaseAction;
+import com.meeks.domain.House;
+import com.meeks.domain.Reserve;
+import com.opensymphony.xwork2.ActionContext;
 
 @Controller
 @Scope("prototype")
 public class ReserveAction extends BaseAction<Reserve> {
 
-    /**
-     * 列表
-     */
-    public String list() throws Exception {
-        String houseName = model.getHouse().getName();
-        House house = null;
-        if (houseName != null) {
-            house = houseService.getByName(houseName);
-        }
-        new QueryHelper(Reserve.class, "r")//
-                .addCondition((houseName != null), "r.houseId = ?", house.getId())//
-                .addCondition((model.getName() != null), "r.name = ?", model.getName())//
-                .addCondition((model.getPhone() != null), "r.phone like ?%", model.getPhone())//
-                .addCondition((model.getEndTime() != null), "r.endTime < ?", DateUtils.addHours(new Date(), 1))//
-                .preparePageBean(reserveService, pageNum, pageSize);
-        return "list";
-    }
-
     public String addUI() throws Exception {
+        House house = houseService.getById(model.getHouseId());
+        ActionContext.getContext().getValueStack().push(house);
         return "saveUI";
     }
 
     public String add() throws Exception {
+        Date curDate = new Date();
+        model.setStartTime(curDate);
+        model.setEndTime(DateUtils.addHours(curDate, hours));
         reserveService.save(model);
-        return null;
+
+        House house = houseService.getById(model.getHouseId());
+        house.setStatus(House.RESERVED);
+        house.setReserveId(model.getId());
+        houseService.update(house);
+        return "toHouseList";
     }
 
-    public String delete() throws Exception {
-        reserveService.delete(model.getId());
-        return "toList";
-    }
-
-    private String editUI() throws Exception {
+    public String show() throws Exception {
         Reserve reserve = reserveService.getById(model.getId());
         ActionContext.getContext().getValueStack().push(reserve);
-        return "saveUI";
+        return "show";
     }
 
-    private String edit() throws Exception {
-        Reserve reserve = reserveService.getById(model.getId());
-        reserve.setName(model.getName());
-        reserve.setPhone(model.getPhone());
-        reserve.setStartTime(model.getStartTime());
-        reserveService.update(reserve);
-        return "toList";
+    private Integer hours;
+
+    public Integer getHours() {
+        return hours;
     }
 
-
+    public void setHours(Integer hours) {
+        this.hours = hours;
+    }
 }

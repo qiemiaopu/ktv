@@ -65,6 +65,12 @@
             <result name="list">/WEB-INF/jsp/billAction/list.jsp</result>
         </action>
 
+        <action name="reserve_*" class="reserveAction" method="{1}">
+            <result name="saveUI">/WEB-INF/jsp/reserveAction/saveUI.jsp</result>
+            <result name="show">/WEB-INF/jsp/reserveAction/show.jsp</result>
+            <result name="toHouseList" type="redirectAction">house_list</result>
+        </action>
+
 
     </package>
 

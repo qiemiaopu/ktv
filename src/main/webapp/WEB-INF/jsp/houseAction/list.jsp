@@ -93,6 +93,9 @@
                                         <%--修改--%>
                                         <span style="margin-right:15px;"><s:a action="house_editUI?id=%{id}" class="edit"><i
                                                 class="fa fa-pencil"></i></s:a></span>
+                                        <%--预约--%>
+                                        <span style="margin-right:15px;"><s:a action="reserve_addUI?houseId=%{id}" class="edit"><i
+                                                class="fa fa-pencil"></i></s:a></span>
                                     </s:if>
                                     <s:if test="status == 1">
                                         <s:a action="house_handleUI?id=%{id}&status=5" class="edit">续费</s:a>
@@ -100,6 +103,10 @@
                                     </s:if>
                                     <s:if test="status == 3">
                                         <s:a action="house_handle?id=%{id}&status=0" class="edit">清理完</s:a>
+                                    </s:if>
+                                    <s:if test="status == 4">
+                                        <s:a action="reserve_show?id=%{reserveId}" class="edit">预约信息</s:a>
+                                        <s:a action="house_deleteReserve?id=%{id}" class="edit"> 删除预约</s:a>
                                     </s:if>
                                 </td>
                             </tr>

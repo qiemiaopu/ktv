@@ -87,6 +87,14 @@ public class HouseAction extends BaseAction<House> {
         return "toList";
     }
 
+    public String deleteReserve() throws Exception {
+        House house = houseService.getById(model.getId());
+        house.setStatus(House.EMPTY);
+        house.setReserveId(null);
+        houseService.update(house);
+        return "toList";
+    }
+
 
     ////////////////////////////////////////////////
     private Integer hours;

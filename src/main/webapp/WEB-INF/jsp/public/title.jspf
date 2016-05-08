@@ -2,24 +2,24 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="navbar-header">
-        <a class="navbar-brand active" href=" ">首页</a>
+        <a class="navbar-brand active" href="user_index.action">首页</a>
     </div>
     <div>
         <ul class="nav navbar-nav">
             <li>
-                <a href="user.html">用户列表</a>
+                <a href="user_list.action">用户管理</a>
             </li>
             <li>
-                <a href="staff.html">员工列表</a>
+                <a href="house_list.action">包房管理</a>
             </li>
             <li>
-                <a href="compartment.html">包房信息</a>
+                <a href="vip_list.action">会员管理</a>
             </li>
             <li>
-                <a href="costomer.html">顾客信息</a>
+                <a href="bill_list.action">账单管理</a>
             </li>
             <li>
-                <a href="login.html"
+                <a href="user_logout.action"
                    style="float:right;color:rgb(40,189,152);font-size:12px;margin-left:500px;">退出登录</a>
             </li>
 

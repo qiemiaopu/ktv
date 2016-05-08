@@ -17,11 +17,7 @@
 		<property name="value" />
 		<property name="discount" />
 		<property name="action1" column="action" />
-
-		<set name="reserves" inverse="true">
-			<key column="houseId"/>
-			<one-to-many class="com.meeks.domain.Reserve"/>
-		</set>
+		<property name="reserveId" column="reserveId"/>
 
 	</class>
 

@@ -12,7 +12,7 @@ public class Reserve {
     private Date startTime;
     private Date endTime;
 
-    private House house = new House();
+    private Integer houseId;
 
     public Integer getId() {
         return id;
@@ -54,11 +54,11 @@ public class Reserve {
         this.endTime = endTime;
     }
 
-    public House getHouse() {
-        return house;
+    public Integer getHouseId() {
+        return houseId;
     }
 
-    public void setHouse(House house) {
-        this.house = house;
+    public void setHouseId(Integer houseId) {
+        this.houseId = houseId;
     }
 }

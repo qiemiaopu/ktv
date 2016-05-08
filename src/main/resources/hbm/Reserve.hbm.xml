@@ -13,8 +13,8 @@
 		<property name="phone" />
 		<property name="startTime" />
 		<property name="endTime" />
+		<property name="houseId" />
 
-		<many-to-one name="house" column="houseId"/>
 	</class>
 
 </hibernate-mapping>

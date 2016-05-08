@@ -1,8 +1,6 @@
 package com.meeks.domain;
 
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 /**
  * 包房
@@ -30,7 +28,7 @@ public class House {
     private Integer status;//[0:空,1:使用中,2:快到期,3:打扫中,4:被预定]
     private String action1;
 
-    private Set<Reserve> reserves = new HashSet<>();
+    private Integer reserveId;
 
     public Integer getId() {
         return id;
@@ -104,11 +102,11 @@ public class House {
         this.action1 = action1;
     }
 
-    public Set<Reserve> getReserves() {
-        return reserves;
+    public Integer getReserveId() {
+        return reserveId;
     }
 
-    public void setReserves(Set<Reserve> reserves) {
-        this.reserves = reserves;
+    public void setReserveId(Integer reserveId) {
+        this.reserveId = reserveId;
     }
 }
