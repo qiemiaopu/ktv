@@ -7,7 +7,7 @@ import com.meeks.domain.House;
  * Created by maple on 16/3/6.
  */
 public interface HouseService extends DaoSupport<House> {
-    boolean open(Integer houseId, Integer hours);
+    boolean open(Integer houseId, Integer hours, Integer vip);
 
     boolean clean(Integer houseId);
 
@@ -15,6 +15,6 @@ public interface HouseService extends DaoSupport<House> {
 
     House getByName(String name);
 
-    boolean delay(Integer houseID, Integer hours);
+    boolean delay(Integer houseID, Integer hours, Integer vip);
 
 }

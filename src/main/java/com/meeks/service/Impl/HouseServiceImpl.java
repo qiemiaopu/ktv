@@ -22,7 +22,7 @@ public class HouseServiceImpl extends DaoSupportImpl<House> implements HouseServ
     private BillService billService;
 
     @Override
-    public boolean open(Integer houseId, Integer hours) {
+    public boolean open(Integer houseId, Integer hours, Integer vip) {
         Date currDate = new Date();
         House bean = getById(houseId);
         if (bean == null)
@@ -32,7 +32,11 @@ public class HouseServiceImpl extends DaoSupportImpl<House> implements HouseServ
         bean.setEndTime(DateUtils.addHours(currDate, hours));
         bean.setAction1(sdf.format(currDate) + " 开台;");
         update(bean);
-        billService.add(new Bill(bean.getValue() * hours, "开台:房间 " + bean.getName() + " ," + hours + "小时."));
+        Double pay;
+        if (vip == 1)
+            pay = bean.getValue() * hours * bean.getDiscount() / 10;
+        else pay = bean.getValue() * hours;
+        billService.add(new Bill(pay, "开台:房间 " + bean.getName() + " ," + hours + "小时."));
         return true;
     }
 
@@ -64,14 +68,18 @@ public class HouseServiceImpl extends DaoSupportImpl<House> implements HouseServ
     }
 
     @Override
-    public boolean delay(Integer houseID, Integer hours) {
+    public boolean delay(Integer houseID, Integer hours, Integer vip) {
         House bean = getById(houseID);
         if (bean == null)
             return false;
         bean.setEndTime(DateUtils.addHours(bean.getEndTime(), hours));
         bean.setAction1(bean.getAction1() + sdf.format(new Date()) + "续费" + hours + "小时;");
         update(bean);
-        billService.add(new Bill(bean.getValue() * hours, bean.getName() + "续费" + hours + "小时."));
+        Double pay;
+        if (vip == 1)
+            pay = bean.getValue() * hours * bean.getDiscount() / 10;
+        else pay = bean.getValue() * hours;
+        billService.add(new Bill(pay, bean.getName() + "续费" + hours + "小时."));
         return true;
     }
 

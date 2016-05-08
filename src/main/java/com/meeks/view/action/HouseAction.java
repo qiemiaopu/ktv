@@ -74,13 +74,13 @@ public class HouseAction extends BaseAction<House> {
                 houseService.useble(houseId);
                 break;
             case House.USING: // 开台
-                houseService.open(houseId, hours);
+                houseService.open(houseId, hours, vip);
                 break;
             case House.CLEANING: // 开始清理
                 houseService.clean(houseId);
                 break;
             case 5: // 续费
-                houseService.delay(houseId, hours);
+                houseService.delay(houseId, hours, vip);
                 break;
             default:
         }
@@ -99,6 +99,15 @@ public class HouseAction extends BaseAction<House> {
 
     ////////////////////////////////////////////////
     private Integer hours;
+    private Integer vip;
+
+    public Integer getVip() {
+        return vip;
+    }
+
+    public void setVip(Integer vip) {
+        this.vip = vip;
+    }
 
     public Integer getHours() {
         return hours;

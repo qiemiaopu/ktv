@@ -18,7 +18,7 @@
 </head>
 
 <body>
-<%@ include file="/WEB-INF/jsp/public/title.jspf"%>
+<%@ include file="/WEB-INF/jsp/public/title.jspf" %>
 <div style="margin:100px auto;width:800px;">
     <div class="row">
         <div class="col-lg-12">
@@ -66,6 +66,13 @@
                                 <label class="col-lg-1 control-label">时长</label>
                                 <div class="col-lg-11">
                                     <s:textfield name="hours" cssClass="form-control" disabled="false"/>
+                                    <span class="help-block m-b-none"></span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-1 control-label">会员</label>
+                                <div class="col-lg-11">
+                                    <s:radio name="vip" list="%{#{'1':'是会员','0':'不是会员'}}" value="0"></s:radio>
                                     <span class="help-block m-b-none"></span>
                                 </div>
                             </div>
