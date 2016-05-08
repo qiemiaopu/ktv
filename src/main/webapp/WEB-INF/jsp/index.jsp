@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="css/w.css">
 </head>
 <body>
-<%@ include file="/WEB-INF/jsp/public/title.jspf"%>
+<%@ include file="/WEB-INF/jsp/public/title.jspf" %>
 <div class="m-main">
     <div class="row">
         <a href="house_list.action">
@@ -41,21 +41,22 @@
             </div>
         </a>
 
-
-        <a href="user_list.action">
-            <div class="col-lg-3 m-main-top" style="margin-left: 12.5%">
-                <div class="m-main-top-4 m-main-top-all">
-                    <p>用户管理</p>
+        <s:if test="#session.user.isAdmin()">
+            <a href="user_list.action">
+                <div class="col-lg-3 m-main-top" style="margin-left: 12.5%">
+                    <div class="m-main-top-3 m-main-top-all">
+                        <p>用户管理</p>
+                    </div>
                 </div>
-            </div>
-        </a>
-        <a href="bill_list.action">
-            <div class="col-lg-3 m-main-top" style="margin-left: 25%">
-                <div class="m-main-top-4 m-main-top-all">
-                    <p>账单管理</p>
+            </a>
+            <a href="bill_list.action">
+                <div class="col-lg-3 m-main-top" style="margin-left: 25%">
+                    <div class="m-main-top-4 m-main-top-all">
+                        <p>账单管理</p>
+                    </div>
                 </div>
-            </div>
-        </a>
+            </a>
+        </s:if>
     </div>
 </div>
 <script type="text/javascript" src="js/jquery-1.10.2.js"></script>

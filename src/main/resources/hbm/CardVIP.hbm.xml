@@ -13,7 +13,6 @@
 		<property name="owner" />
 		<property name="phone" />
 		<property name="createTime" />
-		<property name="value" />
 
 	</class>
 

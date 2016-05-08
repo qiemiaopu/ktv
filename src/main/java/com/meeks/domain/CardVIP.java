@@ -8,7 +8,6 @@ import java.util.Date;
 public class CardVIP {
     private Integer id;
     private String number;
-    private Double value;
     private String owner;
     private Long phone;
     private Date createTime;
@@ -27,14 +26,6 @@ public class CardVIP {
 
     public void setNumber(String number) {
         this.number = number;
-    }
-
-    public Double getValue() {
-        return value;
-    }
-
-    public void setValue(Double value) {
-        this.value = value;
     }
 
     public String getOwner() {

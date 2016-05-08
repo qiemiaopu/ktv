@@ -38,13 +38,6 @@
                                     <span class="help-block m-b-none"></span>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="col-lg-1 control-label">余额</label>
-                                <div class="col-lg-11">
-                                    <s:textfield name="value" cssClass="form-control"/>
-                                    <span class="help-block m-b-none"></span>
-                                </div>
-                            </div>
                             <!-- 第一组按钮 -->
                             <div class="form-group">
                                 <div class="col-lg-6 col-lg-offset-1">

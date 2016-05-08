@@ -46,7 +46,6 @@ public class CardVIPAction extends BaseAction<CardVIP> {
                 number += "0";
             }
             bean.setNumber(number + tail);
-            bean.setValue(model.getValue());
             cardVIPService.save(bean);
         }
         return "toList";
@@ -67,7 +66,6 @@ public class CardVIPAction extends BaseAction<CardVIP> {
         CardVIP cardVIP = cardVIPService.getById(model.getId());
         cardVIP.setPhone(model.getPhone());
         cardVIP.setOwner(model.getOwner());
-        cardVIP.setValue(model.getValue());
         cardVIPService.update(cardVIP);
         return "toList";
     }
@@ -85,7 +83,7 @@ public class CardVIPAction extends BaseAction<CardVIP> {
         cardVIP.setOwner(model.getOwner());
         cardVIPService.update(cardVIP);
 
-        billService.add(new Bill(cardVIP.getValue(), "会员卡 " + cardVIP.getNumber() + " 入账."));
+        billService.add(new Bill(50D, "会员卡 " + cardVIP.getNumber() + " 入账."));
         return "toList";
     }
 

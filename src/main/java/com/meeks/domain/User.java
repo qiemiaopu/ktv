@@ -13,6 +13,15 @@ public class User {
 	private Long phone;
 	private String position;
 
+	/**
+	 * 判断本用户是否是超级管理员
+	 *
+	 * @return
+	 */
+	public boolean isAdmin() {
+		return "admin".equals(loginName);
+	}
+
 	public String getRePassword() {
 		return rePassword;
 	}

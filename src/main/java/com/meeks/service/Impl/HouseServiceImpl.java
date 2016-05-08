@@ -32,7 +32,7 @@ public class HouseServiceImpl extends DaoSupportImpl<House> implements HouseServ
         bean.setEndTime(DateUtils.addHours(currDate, hours));
         bean.setAction1(sdf.format(currDate) + " 开台;");
         update(bean);
-        billService.add(new Bill(bean.getValue() * hours, "开台 " + bean.getName() + " 入账."));
+        billService.add(new Bill(bean.getValue() * hours, "开台:房间 " + bean.getName() + " ," + hours + "小时."));
         return true;
     }
 
@@ -71,7 +71,7 @@ public class HouseServiceImpl extends DaoSupportImpl<House> implements HouseServ
         bean.setEndTime(DateUtils.addHours(bean.getEndTime(), hours));
         bean.setAction1(bean.getAction1() + sdf.format(new Date()) + "续费" + hours + "小时;");
         update(bean);
-        billService.add(new Bill(bean.getValue(), bean.getName() + "续费" + hours + "小时."));
+        billService.add(new Bill(bean.getValue() * hours, bean.getName() + "续费" + hours + "小时."));
         return true;
     }
 

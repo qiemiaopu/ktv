@@ -54,7 +54,6 @@
                         <div class="row">
                             <tr>
                                 <th>卡号</th>
-                                <th>余额</th>
                                 <th>卡主姓名</th>
                                 <th>卡主电话</th>
                                 <th>出售时间</th>
@@ -66,7 +65,6 @@
                         <s:iterator value="beans" status="st">
                             <tr>
                                 <td>${number}</td>
-                                <td>${value}</td>
                                 <td>${owner}</td>
                                 <td>${phone}</td>
                                 <td><s:date name="createTime" format="MM月dd日HH时mm分"/></td>

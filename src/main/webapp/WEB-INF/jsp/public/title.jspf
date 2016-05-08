@@ -6,9 +6,11 @@
     </div>
     <div>
         <ul class="nav navbar-nav">
-            <li>
-                <a href="user_list.action">用户管理</a>
-            </li>
+            <s:if test="#session.user.isAdmin()">
+                <li>
+                    <a href="user_list.action">用户管理</a>
+                </li>
+            </s:if>
             <li>
                 <a href="house_list.action">包房管理</a>
             </li>
@@ -22,7 +24,7 @@
                 <a href="reserve_list.action">预约列表</a>
             </li>
             <li style="margin-left: 500px">
-                <a href="">当前用户:${session.user.loginName}</a>
+                <a href="">当前用户:${session.user.name}</a>
             </li>
             <li>
                 <a href="user_logout.action"

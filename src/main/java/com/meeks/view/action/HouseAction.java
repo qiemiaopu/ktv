@@ -89,6 +89,7 @@ public class HouseAction extends BaseAction<House> {
 
     public String deleteReserve() throws Exception {
         House house = houseService.getById(model.getId());
+        reserveService.delete(house.getReserveId());
         house.setStatus(House.EMPTY);
         house.setReserveId(null);
         houseService.update(house);

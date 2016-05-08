@@ -19,7 +19,7 @@
 
 </head>
 <body>
-<%@ include file="/WEB-INF/jsp/public/title.jspf"%>
+<%@ include file="/WEB-INF/jsp/public/title.jspf" %>
 <div style="margin:100px auto;width:1200px;">
     <div class="row">
         <div class="col-lg-12">
@@ -87,15 +87,19 @@
                                                 action="house_handleUI.action?id=%{id}&status=1"
                                                 class="edit"><i
                                                 class="fa fa-home"></i></s:a></span>
-                                        <%--删除--%>
-                                        <span style="margin-right:15px;"><s:a action="house_delete?id=%{id}" class="edit"><i
+                                        <s:if test="#session.user.isAdmin()">
+                                            <%--删除--%>
+                                        <span style="margin-right:15px;"><s:a action="house_delete?id=%{id}"
+                                                                              class="edit"><i
                                                 class="fa fa-trash-o"></i></s:a></span>
-                                        <%--修改--%>
-                                        <span style="margin-right:15px;"><s:a action="house_editUI?id=%{id}" class="edit"><i
+                                            <%--修改--%>
+                                        <span style="margin-right:15px;"><s:a action="house_editUI?id=%{id}"
+                                                                              class="edit"><i
                                                 class="fa fa-pencil"></i></s:a></span>
+                                        </s:if>
                                         <%--预约--%>
-                                        <span style="margin-right:15px;"><s:a action="reserve_addUI?houseId=%{id}" class="edit"><i
-                                                class="fa fa-pencil"></i></s:a></span>
+                                        <span style="margin-right:15px;"><s:a action="reserve_addUI?houseId=%{id}"
+                                                                              class="edit">预约</s:a></span>
                                     </s:if>
                                     <s:if test="status == 1">
                                         <s:a action="house_handleUI?id=%{id}&status=5" class="edit">续费</s:a>
@@ -116,30 +120,32 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
 
 
-        <!-- 基础包 -->
-        <script src="js/jquery-1.10.2.js"></script>
-        <script src="js/bootstrap.min.js"></script>
+<!-- 基础包 -->
+<script src="js/jquery-1.10.2.js"></script>
+<script src="js/bootstrap.min.js"></script>
 
 
-        <!-- Data Tables -->
-        <script src="js/dataTables/jquery.dataTables.js"></script>
-        <script src="js/dataTables/dataTables.bootstrap.js"></script>
-        <script src="js/dataTables/dataTables.responsive.js"></script>
-        <script src="js/dataTables/dataTables.tableTools.min.js"></script>
+<!-- Data Tables -->
+<script src="js/dataTables/jquery.dataTables.js"></script>
+<script src="js/dataTables/dataTables.bootstrap.js"></script>
+<script src="js/dataTables/dataTables.responsive.js"></script>
+<script src="js/dataTables/dataTables.tableTools.min.js"></script>
 
-        <!-- 本地包 -->
+<!-- 本地包 -->
 
-        <script src="js/001.js"></script>
-        <script>
+<script src="js/001.js"></script>
+<script>
 
-            $(function () {
-                $('.dataTables-example').dataTable(
-                        {"searching": false}
-                );
-            });
+    $(function () {
+        $('.dataTables-example').dataTable(
+                {"searching": false}
+        );
+    });
 
-        </script>
+</script>
 </body>
 </html>    
