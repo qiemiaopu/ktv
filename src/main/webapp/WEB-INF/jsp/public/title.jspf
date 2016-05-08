@@ -10,15 +10,15 @@
                 <li>
                     <a href="user_list.action">用户管理</a>
                 </li>
+                <li>
+                    <a href="bill_list.action">账单管理</a>
+                </li>
             </s:if>
             <li>
                 <a href="house_list.action">包房管理</a>
             </li>
             <li>
                 <a href="vip_list.action">会员管理</a>
-            </li>
-            <li>
-                <a href="bill_list.action">账单管理</a>
             </li>
             <li>
                 <a href="reserve_list.action">预约列表</a>
