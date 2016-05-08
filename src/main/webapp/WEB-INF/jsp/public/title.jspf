@@ -1,0 +1,28 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="navbar-header">
+        <a class="navbar-brand active" href=" ">首页</a>
+    </div>
+    <div>
+        <ul class="nav navbar-nav">
+            <li>
+                <a href="user.html">用户列表</a>
+            </li>
+            <li>
+                <a href="staff.html">员工列表</a>
+            </li>
+            <li>
+                <a href="compartment.html">包房信息</a>
+            </li>
+            <li>
+                <a href="costomer.html">顾客信息</a>
+            </li>
+            <li>
+                <a href="login.html"
+                   style="float:right;color:rgb(40,189,152);font-size:12px;margin-left:500px;">退出登录</a>
+            </li>
+
+        </ul>
+    </div>
+</nav>

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.meeks.domain">
+
+	<class name="House" table="meeks_house" lazy="false">
+		<id name="id">
+			<generator class="native" />
+		</id>
+		<property name="name" unique="true" />
+		<property name="type" />
+		<property name="startTime" />
+		<property name="endTime" />
+		<property name="status" />
+		<property name="value" />
+		<property name="discount" />
+		<property name="action1" column="action" />
+
+		<set name="reserves" inverse="true">
+			<key column="houseId"/>
+			<one-to-many class="com.meeks.domain.Reserve"/>
+		</set>
+
+	</class>
+
+</hibernate-mapping>

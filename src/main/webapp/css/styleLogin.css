@@ -1,0 +1,37 @@
+@charset "utf-8";
+
+body{
+	background: rgb(243,243,243);
+}
+
+.font-gray{
+	color:rgb(105,105,105);
+}
+
+.align-center{
+	text-align: center;
+}
+
+.login-top{
+	margin-top: 120px;
+}
+
+.login-button{
+	width:49%;
+}
+
+.register-button{
+	width:100%;
+}
+
+.xs-tip{
+	margin-top: 10px;
+	font-size: 13px;
+	color:rgb(105,105,105);
+}
+
+
+
+
+
+
